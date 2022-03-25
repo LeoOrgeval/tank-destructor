@@ -15,6 +15,7 @@ class Game:
 
     def __init__(self):
         # Génère le joueur
+        self.is_playing = False
         self.all_player = pygame.sprite.Group()
         self.tank_signature = Tank_signature(self)
         print(self.tank_signature.rect)
@@ -30,3 +31,9 @@ class Game:
         else:
             ennemy = Police(self)
         self.all_ennemy.add(ennemy)
+
+    def start(self):
+        self.is_playing = True
+
+    def update(self, screen):
+        pass
