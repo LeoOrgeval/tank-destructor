@@ -6,7 +6,7 @@ from game import Game
 
 pygame.init()
 
-#FPS
+# FPS
 clock = pygame.time.Clock()
 FPS = 30
 
@@ -14,16 +14,16 @@ FPS = 30
 # Créer la fenêtre du jeu
 pygame.display.set_caption("Royal Tank Destructor")
 screen = pygame.display.set_mode((1080, 475))  # Taille de la fenêtre (les doubles parenthèses sont importantes)
-#bg = pygame.image.load('assets/images/background_map.jpg')
-bg = pygame.image.load('P:/Documents/SIO_Cours_INFORMATIQUE/Developpement/Jeu_Python/RoyalTankDestructor/assets/images/background_map.jpg')
+# bg = pygame.image.load('assets/images/background_map.jpg')
+bg = pygame.image.load('./assets/images/background_map.jpg')
 
-#Background du menu
-#bg_menu = pygame.image.load('assets/images/background_main.jpg')
-bg_menu = pygame.image.load('P:/Documents/SIO_Cours_INFORMATIQUE/Developpement/Jeu_Python/RoyalTankDestructor/assets/images/background_main.jpg')
+# Background du menu
+# bg_menu = pygame.image.load('assets/images/background_main.jpg')
+bg_menu = pygame.image.load('./assets/images/background_main.jpg')
 
-#Bouton start
-#play_button = pygame.image.load('assets/images/boutton_start.png')
-play_button = pygame.image.load('P:/Documents/SIO_Cours_INFORMATIQUE/Developpement/Jeu_Python/RoyalTankDestructor/assets/images/boutton_start.png')
+# Bouton start
+# play_button = pygame.image.load('assets/images/boutton_start.png')
+play_button = pygame.image.load('./assets/images/boutton_start.png')
 play_button = pygame.transform.scale(play_button, (175, 175))
 play_button_rect = play_button.get_rect()
 play_button_rect.x = 440
@@ -40,13 +40,12 @@ while running:
     # Appliquer l'arrière plan du jeu
     screen.blit(bg, (0, 0))
 
-
-    #Jeu commencé ?
+    # Jeu commencé ?
     if game.is_playing:
-        #Déclencher les instructions de la partie
+        # Déclencher les instructions de la partie
         game.update(screen)
     else:
-        #Ajout du menu
+        # Ajout du menu
         screen.blit(bg_menu, (-15, -140))
         screen.blit(play_button, play_button_rect)
 
@@ -73,9 +72,9 @@ while running:
             game.pressed[event.key] = False
 
         elif event.type == pygame.MOUSEBUTTONDOWN:
-            #Souris sur le bouton start ?
-            if play_button_rect.collidepoint(event.pos): #Souris sur le bouton
-                #Mettre le jeu en mode lancer
+            # Souris sur le bouton start ?
+            if play_button_rect.collidepoint(event.pos):  # Souris sur le bouton
+                # Mettre le jeu en mode lancer
                 game.start()
-#Nombre de FPS
+# Nombre de FPS
 clock.tick(FPS)

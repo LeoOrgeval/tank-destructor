@@ -9,8 +9,8 @@ class Projectiles(pygame.sprite.Sprite):
         super().__init__()
         self.velocity = 4
         self.tank_signature = tank_signature
-        self.image = pygame.image.load('P:/Documents/SIO_Cours_INFORMATIQUE/Developpement/Jeu_Python/RoyalTankDestructor/assets/images/projectiles_tank_missile.png')
-        #self.image = pygame.image.load('assets/images/projectiles_tank_missile.png')
+        self.image = pygame.image.load('./assets/images/projectiles_tank_missile.png')
+        # self.image = pygame.image.load('assets/images/projectiles_tank_missile.png')
         self.image = pygame.transform.scale(self.image, (100, 100))
         self.rect = self.image.get_rect()
         self.rect.x = tank_signature.rect.x + 85  # Pour que les projectiles soit lancés depuis le joueur
